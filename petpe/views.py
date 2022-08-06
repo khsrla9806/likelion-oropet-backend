@@ -10,3 +10,6 @@ class MyStoryViewSet(viewsets.ModelViewSet):
 class StoryViewSet(viewsets.ModelViewSet):
     queryset = Story.objects.all()
     serializer_class = StorySerializer
+    
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)

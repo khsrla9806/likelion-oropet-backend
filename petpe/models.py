@@ -1,10 +1,10 @@
 from django.db import models
-# from django.contrib.auth.models import User
+from accounts.models import User
 
 # 이미지 1개 업로드 가능
 class MyStory(models.Model):
-    title = models.CharField(max_length=50)
-    content = models.TextField()
+    title = models.CharField(max_length=50, null=True)
+    content = models.TextField(max_length=350)
     createdAt = models.DateTimeField(auto_now_add=True, null=True)
     updatedAt = models.DateTimeField(auto_now=True, null=True)
     picture = models.ImageField(blank=True, null=True, upload_to='pictures/')
@@ -14,7 +14,7 @@ class MyStory(models.Model):
     
 # 이미지 여러개 업로드 가능한 기능 찾기
 class Story(models.Model):
-    # user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=50)
     content = models.TextField()
     createdAt = models.DateTimeField(auto_now_add=True, null=True)
@@ -25,6 +25,7 @@ class Story(models.Model):
     
     class Meta:
         db_table = 'story'
+        ordering = ['-createdAt']
 
 class StroyPicture(models.Model):
     story = models.ForeignKey(Story, on_delete=models.CASCADE, related_name='picture')
