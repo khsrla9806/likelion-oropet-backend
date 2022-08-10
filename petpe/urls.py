@@ -7,8 +7,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
-router.register('mystory', views.MyStoryViewSet)
 router.register('story', views.StoryViewSet)
+### 댓글 기능 추가 ### 2022.08.10
+router.register(r'comments', views.CommentViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

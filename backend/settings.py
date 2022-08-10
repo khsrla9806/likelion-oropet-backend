@@ -27,7 +27,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =False
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
+    ### add Lib ### 2022.08.10
+    'django_cleanup.apps.CleanupConfig',
     
 ]
 
