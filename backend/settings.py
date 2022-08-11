@@ -83,6 +83,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware', #CORS
+    'django.middleware.common.CommonMiddleware', #CORS 추가했음.
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -92,10 +93,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = [
-    'http://127.0.0.1:3000',
-    'http://localhost:3000',
-]
+# CORS_ORIGIN_WHITELIST = [
+#     'http://127.0.0.1:3000',
+#     'http://localhost:3000',
+# ]
 
 CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:3000',
@@ -103,7 +104,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 # 모든 CORS ORIGIN 허가
-# CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'backend.urls'
