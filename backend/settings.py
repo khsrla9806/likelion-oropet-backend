@@ -163,11 +163,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -189,4 +189,6 @@ CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3000',
 ]
 
-SESSION_COOKIE_SAMESITE = None
+SESSION_COOKIE_SAMESITE = 'None'
+
+SESSION_COOKIE_SECURE = True
