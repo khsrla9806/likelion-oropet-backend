@@ -101,6 +101,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:3000',
     'http://localhost:3000',
+    'https://petped-developers.netlify.app/',
 ]
 
 # 모든 CORS ORIGIN 허가
@@ -187,8 +188,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:3000',
     'http://localhost:3000',
+    'https://petped-developers.netlify.app/',
 ]
 
-SESSION_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = None
 
 SESSION_COOKIE_SECURE = True
