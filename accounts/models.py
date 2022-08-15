@@ -7,7 +7,7 @@ from .managers import UserManager
 class User(AbstractUser):
     username = models.CharField(max_length=30, unique=True, null=True)
     email = models.EmailField(_('email address'), unique=True)
-    userimage = models.ImageField(blank=True, null=True, upload_to='userimages/')
+    userimage = models.ImageField(null=True, default='default.jpg', upload_to='userimages/')
     first_name = None
     last_name = None
     USERNAME_FIELD = 'email'

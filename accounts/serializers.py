@@ -7,7 +7,7 @@ from .models import User
 from django.utils.translation import gettext as _
 
 class CustomRegisterSerializer(RegisterSerializer):
-    userimage = serializers.ImageField(use_url=True)
+    userimage = serializers.ImageField(use_url=True, allow_null=True)
     
     class Meta:
         model = User
