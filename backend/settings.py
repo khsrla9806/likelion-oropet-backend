@@ -27,7 +27,8 @@ SECRET_KEY = get_secret("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# 배포할 때는 False / 로컬에서 사용할 때는 True
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -83,7 +84,6 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware', #CORS
-    'django.middleware.common.CommonMiddleware', #CORS 추가했음.
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
