@@ -56,7 +56,8 @@ class StorySerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Story
-        fields = ['id', 'title', 'content', 'pictures', 'createdAt', 'updatedAt', 'user_id', 'username', 'useremail', 'userimage', 'comments']
+        fields = ['id', 'title', 'content', 'pictures', 'createdAt', 'updatedAt', 'user_id', 'username', 'useremail', 'userimage', 'comments', 'image_likes']
+        read_only_fields = ['image_likes']
     
     def create(self, validated_data):
         instance = Story.objects.create(**validated_data)
@@ -64,3 +65,12 @@ class StorySerializer(serializers.ModelSerializer):
         for pic_data in storypicture_set.getlist('picture'):
             StroyPicture.objects.create(story=instance, picture=pic_data)
         return instance
+
+class SimpleStorySerializer(serializers.ModelSerializer):
+    pictures = serializers.SerializerMethodField()
+    def get_pictures(self, obj):
+        picture = obj.storypicture.all() 
+        return StoryPictureSerializer(instance=picture, many=True, context=self.context).data # context=self.context를 상대경로가 아닌 전체 url이 나온다.
+    class Meta:
+        model = Story
+        fields = ['id', 'pictures', 'createdAt', 'updatedAt']
