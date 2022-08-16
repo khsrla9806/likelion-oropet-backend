@@ -6,10 +6,15 @@ from .serializers import CommentSerializer, StorySerializer
 from django.views.decorators.http import require_POST
 from django.http import HttpResponse
 from accounts.models import User
+from rest_framework.pagination import LimitOffsetPagination
+
+class StoryPagination(LimitOffsetPagination):
+    default_limit=10
 
 class StoryViewSet(viewsets.ModelViewSet):
     queryset = Story.objects.all()
     serializer_class = StorySerializer
+    pagination_class=StoryPagination
     
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)

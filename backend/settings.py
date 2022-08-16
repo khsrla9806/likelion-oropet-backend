@@ -28,7 +28,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # 배포할 때는 False / 로컬에서 사용할 때는 True
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
