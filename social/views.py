@@ -20,7 +20,6 @@ from social import serializers
 class MySocialringViewSet(viewsets.ModelViewSet):
     queryset = Socialring.objects.all().order_by('-created_date')
     serializer_class = MySocialringSerializer
-          
 
 class JoinViewSet(viewsets.ViewSet):
     def list(self,request):
@@ -42,8 +41,8 @@ def join(request,pk):
         social=Socialring.objects.get(id=pk)
         if request.user.is_authenticated:  #사용자가 로그인 한 경우 True 반환
             social.user_jud='True' #로그인 확인 완료
-            if social.count<=social.maxpeople:  
-                    social.count=social.count+1
+            if social.count<=social.maxpeople:
+                    social.count=social.count + 1
                     social.flag='True' #참가허가 O
                     # if social.count<social.maxpeople:
                     #     social.flag='False' #참가허가 x
