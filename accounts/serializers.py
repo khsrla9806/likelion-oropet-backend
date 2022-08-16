@@ -4,6 +4,7 @@ from dj_rest_auth.registration.serializers import RegisterSerializer
 from dj_rest_auth.serializers import UserDetailsSerializer
 from petpe.serializers import SimpleStorySerializer
 from .models import User
+from rest_framework.generics import ListAPIView
 
 from django.utils.translation import gettext as _
 
@@ -39,3 +40,9 @@ class UserFindSerializer(serializers.ModelSerializer):
         model = User
         fields = ['pk', 'username', 'email', 'userimage', 'writen_story']
         read_only_fields = ('email', 'username', 'userimage')
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=User
+        fields=['pk','username']
+        
