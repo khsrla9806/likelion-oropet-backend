@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'social',
     'rest_framework', # DRF
     'corsheaders', #CORS
-    
+    'search',
     # 설치한 라이브러리들
     'rest_framework.authtoken',
     'dj_rest_auth',
@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
+    'django_filters',
+    # 'rest_framework',
     ### add Lib ### 2022.08.10
     'django_cleanup.apps.CleanupConfig',
     
