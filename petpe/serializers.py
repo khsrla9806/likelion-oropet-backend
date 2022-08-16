@@ -38,7 +38,7 @@ class StorySerializer(serializers.ModelSerializer):
     comments = serializers.SerializerMethodField()
     
     def get_pictures(self, obj):
-        picture = obj.picture.all() # related_name 으로 picture을 역참조 해서 queryset으로 반환
+        picture = obj.storypicture.all() # related_name 으로 picture을 역참조 해서 queryset으로 반환
         return StoryPictureSerializer(instance=picture, many=True, context=self.context).data # context=self.context를 상대경로가 아닌 전체 url이 나온다. 
     def get_username(self, obj):
         return obj.user.username if obj.user is not None else 'null'
