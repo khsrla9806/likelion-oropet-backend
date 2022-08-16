@@ -28,7 +28,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # 배포할 때는 False / 로컬에서 사용할 때는 True
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -193,4 +193,4 @@ CSRF_TRUSTED_ORIGINS = [
 
 SESSION_COOKIE_SAMESITE = None
 
-SESSION_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
