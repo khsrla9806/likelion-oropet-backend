@@ -39,7 +39,8 @@ class joinlist(models.Model):
 
 class SocialringComment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True,)
-    socialring = models.ForeignKey(Socialring, on_delete=models.CASCADE,)
+    socialring = models.ForeignKey(Socialring, on_delete=models.CASCADE,related_name='socialringcomment')
+    comment_id=models.IntegerField(null=True,blank=True)
     text = models.TextField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)

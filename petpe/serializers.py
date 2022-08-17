@@ -51,7 +51,7 @@ class StorySerializer(serializers.ModelSerializer):
         else:
             return 'null'
     def get_comments(self, obj):
-        comment = obj.storycomment.all()
+        comment = obj.storycomment.all() 
         return CommentSerializer(instance=comment, many=True, read_only=True, context=self.context).data
     
     class Meta:

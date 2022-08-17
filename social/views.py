@@ -40,9 +40,9 @@ class JoinViewSet(viewsets.ViewSet):
 def join(request,pk):
     if request.method == "POST":
         social=Socialring.objects.get(id=pk)
-        if request.user.is_authenticated:  #사용자가 로그인 한 경우 True 반환
-            social.user_jud='True' #로그인 확인 완료
-            if social.count<=social.maxpeople:  
+        # if request.user.is_authenticated:  #사용자가 로그인 한 경우 True 반환
+        #     social.user_jud='True' #로그인 확인 완료
+        if social.count<=social.maxpeople:  
                     social.count=social.count+1
                     social.flag='True' #참가허가 O
                     # if social.count<social.maxpeople:
@@ -53,7 +53,7 @@ def join(request,pk):
                         finish_form=Form.save(commit=False)
                         finish_form.num=get_object_or_404(Socialring,pk=pk)
                         finish_form.save()
-            else:   #참가허가X
+        else:   #참가허가X
                 social.flag='False'
                 social.save() #db save 실제 카운팅
 
