@@ -9,3 +9,5 @@ urlpatterns = [
     path('socialring/', include('social.urls')),
     path('search/',include('search.urls')),
 ]
+
+
