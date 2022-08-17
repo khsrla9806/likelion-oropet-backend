@@ -29,7 +29,8 @@ class Socialring(models.Model):
     created_date = models.DateTimeField(auto_now_add=True) #값 받기X->화면에 표시만...
     flag=models.CharField(max_length=50,null=True,blank=True) #값 받기X->화면에 표시만...
     user_jud=models.CharField(max_length=50,null=True, blank=True) #로그인 판단(로그인이 확인되면 True->counting URL연결, 아니면 False 로그인 하라는 멘트)
-
+    title=models.CharField(max_length=50, null=True) #소셜링 제목
+    location=models.CharField(max_length=50,null=True) #위치
 
 
 class joinlist(models.Model):   
