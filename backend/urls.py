@@ -6,7 +6,6 @@ urlpatterns = [
     path('', include('petpe.urls')),
     path('accounts/', include('accounts.urls')),
     path('social/', include('social.urls')),
-    path('socialring/', include('social.urls')),
     path('search/',include('search.urls')),
 ]
 
